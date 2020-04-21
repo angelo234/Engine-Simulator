@@ -8,6 +8,8 @@ namespace Engine_Simulator.engine
 {
     class Crankshaft
     {
+        public Engine engine;
+
         public double total_torque;
 
         public double last_hp;
@@ -20,8 +22,9 @@ namespace Engine_Simulator.engine
 
         private double inertia;
 
-        public Crankshaft(EngineSpecs es)
+        public Crankshaft(Engine engine, EngineSpecs es)
         {
+            this.engine = engine;
             inertia = es.inertia;
         }
 
@@ -34,6 +37,17 @@ namespace Engine_Simulator.engine
             rpm += ang_accel * delta * 9.5492965964254;
 
             crank_angle += rpm * 6 * delta;
+
+
+            foreach(Cylinder cylinder in engine.cylinders)
+            {
+                //crank_angle += crankshaft.rpm * 6 * delta;
+                //angle_of_current_stroke += crankshaft.rpm * 6 * delta;
+
+                cylinder.piston.crank_angle += rpm * 6 * delta;
+                cylinder.piston.angle_of_current_stroke += rpm * 6 * delta;
+            }
+            
 
             /*
             if (crank_angle >= 360)
@@ -48,8 +62,6 @@ namespace Engine_Simulator.engine
 
             last_total_torque = total_torque;
             last_crank_angle = crank_angle;
-
-            //Console.WriteLine(last_crank_angle);
 
             total_torque = 0;
 

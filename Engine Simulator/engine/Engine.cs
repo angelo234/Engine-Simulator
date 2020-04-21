@@ -37,7 +37,7 @@ namespace Engine_Simulator.engine
 
             cylinders = new Cylinder[es.num_of_cylinders];
 
-            crankshaft = new Crankshaft(es);
+            crankshaft = new Crankshaft(this, es);
 
             num_of_cylinders = es.num_of_cylinders;
             efficiency = es.efficiency;
@@ -46,6 +46,7 @@ namespace Engine_Simulator.engine
             {
                 double initial_piston_angle = 0;
                 StrokeCycle initial_stroke = StrokeCycle.Intake;
+
 
                 switch (i)
                 {

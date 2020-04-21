@@ -34,6 +34,7 @@ namespace Engine_Simulator
 
             torque_time_chart.Series.Add(torque_time_series);
 
+            torque_time_chart.ChartAreas[0].AxisX.LabelStyle.Enabled = false;
             torque_time_chart.ChartAreas[0].AxisX.Minimum = 0;
             torque_time_chart.ChartAreas[0].AxisX.Interval = 1;
             torque_time_chart.ChartAreas[0].AxisY.Maximum = 300;

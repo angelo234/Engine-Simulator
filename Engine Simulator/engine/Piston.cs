@@ -24,19 +24,18 @@ namespace Engine_Simulator.engine
             this.crankshaft = crankshaft;
             this.crank_angle = initial_crank_angle;
             this.angle_of_current_stroke = 0;
-            crank_radius = es.stroke / 2f;
+            crank_radius = es.stroke / 2.0;
             connecting_rod_length = es.piston_connecting_rod_length;
         }
 
         public void Update(double delta)
         {
-            crank_angle += crankshaft.rpm * 6 * delta;
-            angle_of_current_stroke += crankshaft.rpm * 6 * delta;
+            //crank_angle += crankshaft.rpm * 6 * delta;
+            //angle_of_current_stroke += crankshaft.rpm * 6 * delta;
 
-            double crank_angle_rads = Math.PI / 180f * crank_angle;
-            double crank_radius = es.stroke / 2f;
+            double crank_angle_rads = Math.PI / 180.0 * crank_angle;
 
-            double x = crank_radius / es.piston_connecting_rod_length * Math.Sin(crank_angle_rads);
+            double x = crank_radius / connecting_rod_length * Math.Sin(crank_angle_rads);
             double a = Math.Asin(x);
 
             double crank_force = force_on_piston * Math.Cos(a) * Math.Sin(a + crank_angle_rads);
