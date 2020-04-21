@@ -1,0 +1,56 @@
+﻿Definitions:
+
+-Engine
+	-Cylinders
+		-Total Volume
+		-Current Volume
+		-Temperature
+	-Pistons
+		-Crank Radius or Half Stroke Length
+		-Crank Angle
+		-Rod Length
+		-Current Height
+	-Engine Efficiency = 33% 
+
+	ex. 4 cylinder 4 stroke
+		-1 cycle = 2 combustion reactions
+
+-Air
+	-Density @ 20C = 1.2041 kg/m^3
+	-Percentage Comp in Mass
+		-Nitrogen = 75.52%
+		-Oxygen = 23.14%
+
+-Gasoline
+	-Energy Density of Gasoline = 45 kJ/g
+	-Density of Gasoline = 0.7489 g/cm^3 or g/ml
+
+	-Combustion of Gasoline
+		-Reactants
+			-1 mol or 114.22852 g of gasoline 
+			-12.5 moles or 399.985 g of O2 or 1728.5436 g of air
+		-Products
+			-8 moles or 352.076 g of CO2
+			-9 moles or 162.13752 g of H2O
+		
+
+Features:
+	-User gets to modulate throttle (open/close throttle body to let in air)
+	-Will graph live (rpm vs torque/power)
+	-Combustion will push piston down
+	W=Fd
+
+	45 kJ * 33% = F * Stroke Length
+
+	40 rps = 80 combustion reactions per second
+
+	1.5 kJ * 80 = 120 kW
+	
+
+
+Process:
+	1. Calculate fuel in grams to inject from air entering engine
+		a. Based on optimal 15.13 air fuel ratio 
+	2. 
+	
+	2. Display data on graph
